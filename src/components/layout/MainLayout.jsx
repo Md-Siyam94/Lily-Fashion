@@ -6,11 +6,12 @@ import Navbar from '../shared/Navbar'
 export default function MainLayout({children}) {
   return (
     <div>
-        
         <nav>
             <Navbar></Navbar>
         </nav>
-        {children}
+        <div className='min-h-[calc(100vh-50px)] pt-20'>
+            {children}
+        </div>
         <footer>
             <Footer></Footer>
         </footer>

@@ -1,11 +1,13 @@
 import MainLayout from "@/components/layout/MainLayout";
-import Navbar from "@/components/shared/Navbar";
-import Image from "next/image";
+import Hero from "@/components/ui/home/Hero";
+
 
 export default function Home() {
   return (
     <div>
-      <MainLayout></MainLayout>
+      <MainLayout>
+    <Hero></Hero>
+      </MainLayout>
     </div>
   );
 }
