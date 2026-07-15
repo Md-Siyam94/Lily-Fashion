@@ -1,15 +1,17 @@
-
-import NavLink from '../NavLink';
+'use client'
+import { CgShoppingCart } from 'react-icons/cg';
+import NavLink from '../common/NavLink';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { CartContext } from '@/contex/CartProvider';
 
 const Navbar = () => {
- 
+ const {cart} = useContext(CartContext);
+
   const links = <>
     <li><NavLink href={"/"}>Home</NavLink></li>
     <li><NavLink href={"/products"}>Products</NavLink></li>
-    <li><NavLink href={"/blog"}>Blog</NavLink></li>
-    <li><NavLink href={"/men"}>Men's</NavLink></li>
-    <li><NavLink href={"/women"}>Women's</NavLink></li>
+    <li><NavLink href={"/cart"}>Cart</NavLink></li>
   </>
 
   return (
@@ -28,7 +30,7 @@ const Navbar = () => {
               }
             </ul>
           </div>
-          <Link href={'/'} className="btn btn-ghost text-2xl  ">           
+          <Link href={"/"} className="btn btn-ghost text-2xl  ">           
             LiLy Fashion
           </Link>
         </div>
@@ -39,6 +41,14 @@ const Navbar = () => {
                 links
               }
             </ul>
+              <Link href={'/cart'} className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center  relative transition-colors">
+              <CgShoppingCart size={26} />
+              {
+                cart?.length > 0 && <span className="absolute -top-1 -right-1 text-white bg-orange-500  text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                {cart?.length}
+              </span>
+              }
+            </Link>
           </div>
         </div>
       </div>
