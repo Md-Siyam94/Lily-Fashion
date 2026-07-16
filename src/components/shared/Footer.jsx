@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
           <div>
            <Link href={"/"} className="">
            <Image className='h-18 w-28 object-cover' src={Lily_Fashion} alt="Lily fashion Logo" />
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-lg mb-6 uppercase">About</h4>
+            <h4 className="text-white font-bold text-lg mb-6 ml-7 uppercase">About</h4>
             <ul className="space-y-4">
               {aboutLinks.map((link, index) => (
                 <li key={index}>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-lg mb-6 uppercase">Helps</h4>
+            <h4 className="text-white font-bold text-lg mb-6 ml-7 uppercase">Helps</h4>
             <ul className="space-y-4">
               {helpLinks.map((link, index) => (
                 <li key={index}>

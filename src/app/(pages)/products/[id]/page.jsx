@@ -7,6 +7,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import Image from 'next/image';
 import { BiHeart } from 'react-icons/bi';
 import { CartContext } from '@/contex/CartProvider';
+import ProductShowcase from '@/components/common/ProductShowcase';
 
 export default function ProductDetails() {
     const { id } = useParams();
@@ -45,13 +46,13 @@ export default function ProductDetails() {
                             src={image}
                             alt={category} />
                     </figure>
-                    <div className=" pl-12 lg:pl-0">
+                    <div className=" pl-12 lg:pl-0 pt-7">
                         <h2 className="card-title">
                             {name}
                         </h2>
                         <p className=" my-4 text-gray-500">Description: <span className="text-black  ">{description}</span></p>
                         <p className=" my-4 text-gray-500">Category: <span className="text-blue-500  ">{category}</span></p>
-                        <p className="my-4">{inStock ? <span className="text-green-500">In Stock</span> : <span className="text-red-500">Out of Stock</span>}</p>
+                        <p className="my-4">{inStock ? <span className="text-teal-500">In Stock</span> : <span className="text-red-500">Out of Stock</span>}</p>
                         <p className="text-xl font-bold">TK {price}</p>
                         <p className="flex my-4 gap-2"> Size: {sizes?.join(", ")}</p>
 
@@ -115,21 +116,8 @@ export default function ProductDetails() {
                     </div>
                 </div>
             </div>
-            <div className="px-8 mt-5 lg:mt-0 ">
-                <h1 className="text-xl font-semibold ">More products</h1>
-                <div>
-
-                    {/* {
-                        products.map((signleProduct) => <Link to={`/product-details/${signleProduct?._id}`} key={signleProduct?._id} className="py-2 my-2  flex gap-4 border-b border-b-gray-400 ">
-                            <img className="h-16 w-16 object-cover" src={signleProduct?.image} alt="product image" />
-                            <div>
-                                <h2>{signleProduct?.name}</h2>
-                                <p className="text-sm">Brand: {signleProduct?.brand}</p>
-                            </div>
-
-                        </Link>)
-                    } */}
-                </div>
+            <div className="mt-8  ">
+                <ProductShowcase title={"More Products"}/>
             </div>
         </div>
     )
