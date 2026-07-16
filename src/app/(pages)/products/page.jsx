@@ -2,7 +2,7 @@ import React from 'react';
 import { products } from '@/components/data/products';
 import ProductCard from '@/components/cards/ProductCard';
 
-const page = () => {
+const Products = () => {
     console.log(products);
     return (
         <div className='max-w-7xl mx-auto'>
