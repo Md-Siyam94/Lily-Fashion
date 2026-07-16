@@ -53,7 +53,7 @@ export const products = [
     "category": "Saree",
     "price": 3490,
     "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-    "rating": 4.9,
+    "rating": 4.5,
     "colors": ["Red", "White"],
     "sizes": ["Free Size"],
     "inStock": true,

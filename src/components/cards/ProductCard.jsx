@@ -1,45 +1,34 @@
 'use client'
 import Image from 'next/image';
-import React from 'react'
-import { Rating } from 'react-simple-star-rating';
+import Link from 'next/link';
+
+// import ReactStars from "react-rating-stars-component";
 
 export default function ProductCard({ product }) {
     const { id, price, name, category, image, rating } = product || {}
+    console.log(rating);
     return (
-        <div className="card bg-base-100  shadow-sm">
+        <div className=" bg-base-100  shadow-sm">
             <figure>
-                <Image
-                    width={500}
-                    height={500}
-                    className="w-full h-64 object-cover" src={image}
-                    alt={category} />
+                <Link href={`/products/${id}`} key={id} className="group cursor-pointer">
+                    <Image
+                        width={500}
+                        height={500}
+                        className="w-full h-64 object-cover rounded-lg" src={image}
+                        alt={category} />
+                </Link>
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
+                <h2 className=" font-semibold">
                     {name}
 
                 </h2>
-                <div
-                className='inline-flex items-center'
-                    style={{
-                        direction: 'ltr',
-                        fontFamily: 'sans-serif',
-                        touchAction: 'none'
-                    }}
-                >
-                    <Rating
-                    
-                        initialValue={2}
-                        onClick={function noRefCheck() { }}
-                        readonly
-                    />
-                </div>
-                <p>TK {price}</p>
-
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
-                </div>
+                {/* <ReactStars
+                    size={30}
+                    value={rating}
+                    edit={false}
+                /> */}
+                <p className='text-lg font-semibold'>TK {price}</p>
             </div>
         </div>
     )
