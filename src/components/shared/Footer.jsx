@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { BiCalendar, BiPhone } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { CgMail } from 'react-icons/cg';
-
+import Lily_Fashion from '../../../public/lilyfashionlogo.png'
+import Image from 'next/image';
 
 
 const Footer = () => {
@@ -45,16 +46,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
            <Link href={"/"} className="btn btn-ghost text-2xl font-semibold">
-           {/* <img className='h-36 w-36 object-cover' src={EduBeeLogo} alt="EduBee Logo" /> */}
+           <Image className='h-36 w-36 object-cover' src={Lily_Fashion} alt="Lily fashion Logo" />
            </Link>
            
             <div className="space-y-3 mt-10 mb-6">
               <a href="tel:(702) 123-1478" className="flex items-center gap-3 text-2xl font-semibold text-white hover:text-teal-400 transition-colors">
-                <BiPhone className="w-5 h-5 flex-shrink-0" />
+                <BiPhone className="w-5 h-5 shrink-0" />
                 <span>+880 1789478967</span>
               </a>
               <a href="mailto:info@company.com" className="flex items-center gap-3 text-gray-300 hover:text-teal-400 transition-colors">
-                <CgMail className="w-5 h-5 flex-shrink-0" />
+                <CgMail className="w-5 h-5 shrink-0" />
                 <span>siyam942404@gmail.com</span>
               </a>
             </div>
@@ -69,7 +70,7 @@ const Footer = () => {
                     href={link.href}
                     className="flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors group"
                   >
-                    <BsArrowRight className="w-4 h-4 flex-shrink-0 opacity-0 text-gray-400 group-hover:opacity-100 transition-opacity" />
+                    <BsArrowRight className="w-4 h-4 shrink-0 opacity-0 text-gray-400 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
                   </a>
                 </li>
@@ -86,7 +87,7 @@ const Footer = () => {
                     href={link.href}
                     className="flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors group"
                   >
-                    <BsArrowRight className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <BsArrowRight className="w-4 h-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
                   </a>
                 </li>

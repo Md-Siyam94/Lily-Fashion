@@ -9,7 +9,7 @@ export default function MainLayout({children}) {
         <nav>
             <Navbar></Navbar>
         </nav>
-        <div className='min-h-[calc(100vh-50px)] pt-20'>
+        <div className='min-h-[calc(100vh-50px)] pt-22'>
             {children}
         </div>
         <footer>

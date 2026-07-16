@@ -1,7 +1,10 @@
+import EmptyCart from '@/components/common/EmptyCart'
 import React from 'react'
 
 export default function page() {
   return (
-    <div>this is Cart page</div>
+    <div>
+      <EmptyCart></EmptyCart>
+    </div>
   )
 }
