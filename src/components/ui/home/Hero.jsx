@@ -12,7 +12,7 @@ import Banner5 from '../../../assets/hero/banner5.avif'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 export default function Hero() {
 
@@ -26,11 +26,11 @@ export default function Hero() {
                     navigation={true}
                     loop={true}
                     autoplay={{
-                        delay: 2500,
+                        delay: 4000,
                         disableOnInteraction: false,
                     }}
 
-                    modules={[Pagination]}
+                    modules={[Pagination, Autoplay]}
                     className="mySwiper">
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner1} alt='banner-1' /></SwiperSlide>
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner2} alt='banner-2' /></SwiperSlide>

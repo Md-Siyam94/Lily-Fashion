@@ -1,7 +1,7 @@
 
 'use client'
 import Image from "next/image"
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
@@ -53,6 +53,7 @@ export default function Categories() {
     // console.log(categories)
     return (
         <div className=' px-5 max-w-7xl mx-auto py-10'>
+            <h1 className="text-4xl font-sans mb-4">Categories</h1>
             <Swiper
                 slidesPerView={6}
                
@@ -60,15 +61,15 @@ export default function Categories() {
                 navigation={true}
                 loop={true}
                 autoplay={{
-                    delay: 1000,
+                    delay: 4500,
                     
                 }}
 
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]}
                 >
                 {
-                    categories.map((category, index) => <SwiperSlide className='grid justify-center text-center' key={index}>
-                        <Image height={500} width={500} className='h-32 w-32 object-cover rounded-full' src={category.image} alt={category.category} />
+                    categories.map((category, index) => <SwiperSlide className=' text-center' key={index}>
+                        <Image height={500} width={500} className='h-32 w-32 object-cover mx-auto rounded-full' src={category.image} alt={category.category} />
                         <h2 className='lg font-semibold mt-2'>{category.category}</h2>
                     </SwiperSlide>)
                 }

@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
+import { SwiperSlide } from 'swiper/react';
 
 // import ReactStars from "react-rating-stars-component";
 
