@@ -6,10 +6,8 @@ import 'swiper/css/pagination';
 import Banner1 from '../../../assets/hero/banner1.webp'
 import Banner2 from '../../../assets/hero/banner2.webp'
 import Banner3 from '../../../assets/hero/banner3.png'
-import Banner4 from '../../../assets/hero/banner4.avif'
-import Banner5 from '../../../assets/hero/banner5.png'
 import Banner6 from '../../../assets/hero/banner-6.jpg'
-// import Banner7 from '../../../assets/hero/banner7.png'
+import Banner7 from '../../../assets/hero/banner7.jpg'
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -37,15 +35,14 @@ export default function Hero() {
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner1} alt='banner-1' /></SwiperSlide>
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner2} alt='banner-2' /></SwiperSlide>
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner3} alt='banner-3' /></SwiperSlide>
-                    {/* <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner2} alt='banner-4' /></SwiperSlide> */}
-                    <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner5} alt='banner-5' /></SwiperSlide>
+                    
 
                 </Swiper>
             </div>
             <div className='col-span-2 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner1} alt='banner-1' /></div>
-            <div className='col-span-2 h-full w-full row-span-1 top-0 '><Image className='rounded-lg' src={Banner2} alt='banner-2' /></div>
+            <div className='col-span-2 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner2} alt='banner-2' /></div>
             <div className='col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner6} alt='banner-6' /></div>
-            <div className='col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg ' src={""} alt='banner-7' /></div>
+            <div className='col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner7} alt='banner-6' /></div>
 
         </div>
     )

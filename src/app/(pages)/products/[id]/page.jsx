@@ -3,31 +3,31 @@ import { useParams } from 'next/navigation';
 import React, { useContext, useState } from 'react'
 import { products } from '@/components/data/products';
 import { RiShoppingCartLine } from 'react-icons/ri';
-import { FaRegHeart } from 'react-icons/fa';
 import Image from 'next/image';
-import { BiHeart } from 'react-icons/bi';
 import { CartContext } from '@/contex/CartProvider';
 import ProductShowcase from '@/components/common/ProductShowcase';
 
 export default function ProductDetails() {
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext)
-    //   console.log(Number(id));
-    const [selectedColor, setSelectedColor] = useState("")
     const [quantity, setQuantity] = useState(1)
-
-    console.log(cart);
+    // get product
     const product = products.find((product) => product.id === Number(id));
     const { price, name, category, image, rating, inStock, sizes, colors, description } = product || {}
+    const [selectedColor, setSelectedColor] = useState(colors[0])
+    const [selectedSize, setSelectedSize] = useState(sizes[0])
+    // total Price
+    const totalPrice = price * quantity;
 
-
+    // Add to cart
     const handleAddToCart = () => {
         const productInfo = {
             id: id,
             name: name,
-            price: price,
+            price: totalPrice,
             image: image,
             quantity: quantity,
+            size: selectedSize,
             color: selectedColor
         }
 
@@ -54,7 +54,25 @@ export default function ProductDetails() {
                         <p className=" my-4 text-gray-500">Category: <span className="text-blue-500  ">{category}</span></p>
                         <p className="my-4">{inStock ? <span className="text-teal-500">In Stock</span> : <span className="text-red-500">Out of Stock</span>}</p>
                         <p className="text-xl font-bold">TK {price}</p>
-                        <p className="flex my-4 gap-2"> Size: {sizes?.join(", ")}</p>
+                        {/* Size selector */}
+                        <div className='my-4'>
+                            <p className="text-sm  font-semibold text-gray-700 mb-2">
+                                Select Size: <span className="text-red-500">*</span></p>
+                            <div className="flex  gap-2 flex-wrap">
+                                {sizes.map((size) => (
+                                    <button
+                                        key={size}
+                                        onClick={() => setSelectedSize(size)}
+                                        className={`px-5 py-2 rounded-lg border text-xs font-medium transition ${selectedSize === size
+                                            ? 'border-teal-500 text-teal-600 bg-blue-50 shadow-sm'
+                                            : 'border-gray-300 text-gray-700 hover:border-gray-400 bg-white'
+                                            }`}
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
 
                         {/* Color selector */}
                         <div>
@@ -65,7 +83,7 @@ export default function ProductDetails() {
                                     <button
                                         key={color}
                                         onClick={() => setSelectedColor(color)}
-                                        className={`px-5 py-2 rounded-lg border text-sm font-medium transition ${selectedColor === color
+                                        className={`px-5 py-2 rounded-lg border text-xs font-medium transition ${selectedColor === color
                                             ? 'border-teal-500 text-teal-600 bg-blue-50 shadow-sm'
                                             : 'border-gray-300 text-gray-700 hover:border-gray-400 bg-white'
                                             }`}
@@ -96,8 +114,8 @@ export default function ProductDetails() {
                                 </button>
                             </div>
 
-                            <button onClick={() => handleAddToCart()} className="flex-1 flex items-center justify-center gap-2 bg-teal-400 hover:bg-teal-500 hover:cursor-pointer hover:text-white font-bold py-3 px-6 rounded-xl transition shadow-sm hover:shadow-md">
-                                <RiShoppingCartLine size={18} />
+                            <button onClick={() => handleAddToCart()} className="flex-1 flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 hover:cursor-pointer hover:text-white font-bold py-3 px-6 rounded-xl transition shadow-sm hover:shadow-md">
+                                <RiShoppingCartLine size={24} />
                                 ADD TO CART
                             </button>
 
@@ -117,7 +135,7 @@ export default function ProductDetails() {
                 </div>
             </div>
             <div className="mt-8  ">
-                <ProductShowcase title={"More Products"}/>
+                <ProductShowcase title={"More Products"} />
             </div>
         </div>
     )

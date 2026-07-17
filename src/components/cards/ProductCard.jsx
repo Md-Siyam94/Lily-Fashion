@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { SwiperSlide } from 'swiper/react';
-
+import { Rating } from 'react-simple-star-rating'
 // import ReactStars from "react-rating-stars-component";
 
 export default function ProductCard({ product }) {
@@ -24,11 +24,20 @@ export default function ProductCard({ product }) {
                     {name}
 
                 </h2>
-                {/* <ReactStars
-                    size={30}
-                    value={rating}
-                    edit={false}
-                /> */}
+                <div
+                    style={{
+                        direction: 'ltr',
+                        fontFamily: 'sans-serif',
+                        touchAction: 'none'
+                    }}
+                >
+                    <Rating 
+                    className=''
+                        initialValue={2}
+                        onClick={function noRefCheck() { }}
+                        readonly
+                    />
+                </div>
                 <p className='text-lg font-semibold'>TK {price}</p>
             </div>
         </div>

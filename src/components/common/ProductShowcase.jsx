@@ -14,7 +14,6 @@ export default function ProductShowcase({title}) {
             <div >
                 <Swiper
                 slidesPerView={5}
-               
         spaceBetween={30}
                 navigation={true}
                 loop={true}
