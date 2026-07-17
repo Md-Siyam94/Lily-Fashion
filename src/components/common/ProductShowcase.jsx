@@ -4,15 +4,16 @@ import { products } from '@/components/data/products'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Rating } from 'react-simple-star-rating'
 export default function ProductShowcase({ title }) {
 
     return (
         <div className=' max-w-7xl mx-auto section-gap px-5'>
             <h1 className="text-4xl font-sans mb-8">{title}</h1>
-            <div >
+            <div className='w-full mx-auto'>
                 <Swiper
+                className=' '
                     slidesPerView={2}
                     breakpoints={{
                         768: {
@@ -30,10 +31,10 @@ export default function ProductShowcase({ title }) {
 
                     }}
 
-                    modules={[Pagination, Autoplay]}>
+                    modules={[Pagination, Autoplay,Navigation]}>
                     {products.map((product) => (
                         <SwiperSlide key={product.id} >
-                            <div className=" bg-base-100  shadow-sm">
+                            <div className=" bg-base-100  shadow-md">
                                 <figure>
                                     <Link href={`/products/${product.id}`} className="group cursor-pointer">
                                         <Image

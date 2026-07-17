@@ -5,7 +5,7 @@ import Mobile from '../../../assets/hero/offermobile_.webp'
 
 export default function GetApp() {
     return (
-        <div className='max-w-7xl mx-auto px-5'>
+        <div className='max-w-7xl mx-auto px-5 pt-10'>
             <Image
                 width={500}
                 height={500}

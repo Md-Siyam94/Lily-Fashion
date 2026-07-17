@@ -6,6 +6,7 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 import Image from 'next/image';
 import { CartContext } from '@/contex/CartProvider';
 import ProductShowcase from '@/components/common/ProductShowcase';
+import Swal from 'sweetalert2';
 
 export default function ProductDetails() {
     const { id } = useParams();
@@ -19,34 +20,65 @@ export default function ProductDetails() {
     // total Price
     const totalPrice = price * quantity;
 
-    // Add to cart
-    const handleAddToCart = () => {
-        const productInfo = {
-            id: id,
-            name: name,
-            price: totalPrice,
-            image: image,
-            quantity: quantity,
-            size: selectedSize,
-            color: selectedColor
-        }
+   
+    const [zoomStyle, setZoomStyle] = useState({});
+    const [isHovering, setIsHovering] = useState(false);
 
-        setCart((prevCart) => [...prevCart, productInfo])
+    // mouse hover effect
+    const handleMouseMove = (e) => {
+        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - left) / width) * 100;
+        const y = ((e.clientY - top) / height) * 100;
+
+        setZoomStyle({
+            transformOrigin: `${x}% ${y}%`,
+            transform: 'scale(2)',
+        });
+    };
+
+    // Add to cart
+    const handleAddToCart = (id) => {
+        const isExisted = cart.find(product => product.id === id)
+    
+        if (isExisted) {
+            return Swal.fire({
+                text: "Product Already in Your Cart",
+                icon: "error"
+            });
+        } else {
+            const productInfo = {
+                id: id,
+                name: name,
+                price: totalPrice,
+                image: image,
+                quantity: quantity,
+                size: selectedSize,
+                color: selectedColor
+            }
+            setCart((prevCart) => [...prevCart, productInfo])
+        }
     }
 
     return (
         <div>
             <div className="max-w-7xl   mx-auto lg:mt-5 rounded-2xl  ">
-                <div className="lg:flex w-full mx-auto  bg-base-100  px-4 shadow-sm">
-                    <figure className="px-10">
-                        <Image
-                            height={500}
-                            width={500}
-                            className="  mx-auto p-7 "
-                            src={image}
-                            alt={category} />
-                    </figure>
-                    <div className=" pl-12 lg:pl-0 pt-7">
+                <div className="grid lg:grid-cols-5 w-full mx-auto bg-base-100  px-4 shadow-sm">
+                    <div className='lg:col-span-2 overflow-hidden w-10/12'>
+                        <figure onMouseMove={handleMouseMove} onMouseEnter={() => setIsHovering(true)}
+                            onMouseLeave={() => {
+                                setIsHovering(false);
+                                setZoomStyle({});
+                            }} className="px-10 relative w-full  rounded-lg cursor-zoom-in">
+                            <Image
+                                height={500}
+                                width={500}
+                                className="  mx-auto p-7  transition-transform duration-150 ease-out"
+                                style={isHovering ? zoomStyle : {}}
+                                src={image}
+                                alt={category} />
+                        </figure>
+                    </div>
+                    <div className=" lg:col-span-3 pt-7">
                         <h2 className="card-title">
                             {name}
                         </h2>
@@ -114,7 +146,7 @@ export default function ProductDetails() {
                                 </button>
                             </div>
 
-                            <button onClick={() => handleAddToCart()} className="flex-1 flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 hover:cursor-pointer hover:text-white font-bold py-3 px-6 rounded-xl transition shadow-sm hover:shadow-md">
+                            <button onClick={() => handleAddToCart(id)} className=" flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 hover:cursor-pointer hover:text-white font-bold py-3 px-6 rounded-xl transition shadow-sm hover:shadow-md">
                                 <RiShoppingCartLine size={24} />
                                 ADD TO CART
                             </button>
