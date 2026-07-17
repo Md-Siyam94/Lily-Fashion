@@ -36,7 +36,7 @@ export default function Cart() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
   return (
-    <div className='max-w-7xl mx-auto grid grid-cols-12 gap-5 max-h-screen[calc(100vh-100px)] overflow-y-scroll xl:pb-10 lg:px-20 px-5 pt-5'>
+    <div className='max-w-7xl mx-auto grid grid-cols-12 gap-5 min-h-screen[calc(100vh-100px)] overflow-y-scroll xl:pb-10 lg:px-20 px-5 pt-5'>
       {/* cart product section */}
       <div className="overflow-x-auto lg:col-span-8 col-span-12">
         {
@@ -112,7 +112,7 @@ export default function Cart() {
         }
       </div>
       {/* payment section */}
-      <div className='lg:col-span-4 col-span-12 w-full grid shadow max-h-[calc(100vh-150px)] p-5 rounded-xl'>
+      <div className='lg:col-span-4 col-span-12 w-full grid shadow  p-5 rounded-xl'>
         <h1 className='text-2xl font-semibold'>Payment Info</h1>
 
         <div className='mt-4'>
@@ -139,8 +139,8 @@ export default function Cart() {
 
       {/* Open the modal */}
       <dialog id="my_modal_2" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-2xl">Thank you for Buying</h3>
+        <div className="modal-box py-10">
+          <h3 className="font-bold text-2xl">Order Completed!</h3>
          
         </div>
         <form method="dialog" className="modal-backdrop">
