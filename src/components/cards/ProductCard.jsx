@@ -24,20 +24,18 @@ export default function ProductCard({ product }) {
                     {name}
 
                 </h2>
-                <div
-                    style={{
-                        direction: 'ltr',
-                        fontFamily: 'sans-serif',
-                        touchAction: 'none'
-                    }}
-                >
-                    <Rating 
-                    className=''
-                        initialValue={2}
-                        onClick={function noRefCheck() { }}
-                        readonly
-                    />
-                </div>
+                 <div className="flex items-center gap-1.5 mb-2">
+          <Rating
+            initialValue={product.rating}
+            readonly
+            size={16}
+            fillColor="#f97316"
+            emptyColor="#d1d5db"
+            allowFraction
+            SVGstyle={{ display: 'inline' }}
+          />
+          <span className="text-xs text-gray-500">({rating} Ratings)</span>
+        </div>
                 <p className='text-lg font-semibold'>TK {price}</p>
             </div>
         </div>

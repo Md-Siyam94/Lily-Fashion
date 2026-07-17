@@ -1,28 +1,28 @@
 'use client'
 import React from 'react'
 import { products } from '@/components/data/products'
-import ProductCard from '@/components/cards/ProductCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Autoplay, Pagination } from "swiper/modules";
-export default function ProductShowcase({title}) {
+import { Rating } from 'react-simple-star-rating'
+export default function ProductShowcase({ title }) {
 
     return (
         <div className=' max-w-7xl mx-auto section-gap px-5'>
             <h1 className="text-4xl font-sans mb-8">{title}</h1>
             <div >
                 <Swiper
-                slidesPerView={5}
-        spaceBetween={30}
-                navigation={true}
-                loop={true}
-                autoplay={{
-                    delay: 4500,
-                    
-                }}
+                    slidesPerView={5}
+                    spaceBetween={30}
+                    navigation={true}
+                    loop={true}
+                    autoplay={{
+                        delay: 4500,
 
-                modules={[Pagination, Autoplay]}>
+                    }}
+
+                    modules={[Pagination, Autoplay]}>
                     {products.map((product) => (
                         <SwiperSlide key={product.id} >
                             <div className=" bg-base-100  shadow-sm">
@@ -40,11 +40,16 @@ export default function ProductShowcase({title}) {
                                         {product.name}
 
                                     </h2>
-                                    {/* <ReactStars
-                    size={30}
-                    value={rating}
-                    edit={false}
-                /> */}
+                                    <Rating
+                                        initialValue={product.rating}
+                                        readonly
+                                        size={16}
+                                        fillColor="#f97316"
+                                        emptyColor="#d1d5db"
+                                        allowFraction
+                                        SVGstyle={{ display: 'inline' }}
+                                    />
+                                    <span className="text-xs text-gray-500">({product.rating} Ratings)</span>
                                     <p className='text-lg font-semibold'>TK {product.price}</p>
                                 </div>
                             </div>

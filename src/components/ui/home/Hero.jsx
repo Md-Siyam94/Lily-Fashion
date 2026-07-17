@@ -32,9 +32,9 @@ export default function Hero() {
 
                     modules={[Pagination, Autoplay]}
                     className="mySwiper">
+                    <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner3} alt='banner-3' /></SwiperSlide>
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner1} alt='banner-1' /></SwiperSlide>
                     <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner2} alt='banner-2' /></SwiperSlide>
-                    <SwiperSlide><Image className='h-full w-full object-cover rounded-lg' src={Banner3} alt='banner-3' /></SwiperSlide>
                     
 
                 </Swiper>
