@@ -17,8 +17,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export default function Hero() {
 
     return (
-        <div className='max-w-7xl min-h-[70vh] mx-auto gap-5 grid grid-cols-8 grid-rows-3'>
-            <div className='col-span-6 h-full w-full row-span-3 rounded-lg '>
+        <div className='max-w-7xl min-h-[70vh] mx-auto gap-5 grid grid-cols-4 lg:grid-cols-8 grid-rows-2 lg:grid-rows-3'>
+            <div className='lg:col-span-6 col-span-4 h-full w-full lg:row-span-3 row-span-1 rounded-lg '>
                 <Swiper
                     pagination={{
                         dynamicBullets: true,
@@ -39,8 +39,8 @@ export default function Hero() {
 
                 </Swiper>
             </div>
-            <div className='col-span-2 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner1} alt='banner-1' /></div>
-            <div className='col-span-2 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner2} alt='banner-2' /></div>
+            <div className='lg:col-span-2 col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner1} alt='banner-1' /></div>
+            <div className='lg:col-span-2 col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner2} alt='banner-2' /></div>
             <div className='col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner6} alt='banner-6' /></div>
             <div className='col-span-1 h-full w-full row-span-1 '><Image className='rounded-lg' src={Banner7} alt='banner-6' /></div>
 

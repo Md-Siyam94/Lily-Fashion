@@ -8,8 +8,7 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 import Image from 'next/image';
 
 const Navbar = () => {
- const {cart} = useContext(CartContext);
-console.log(cart);
+  const { cart } = useContext(CartContext);
   const links = <>
     <li><NavLink href={"/"}>Home</NavLink></li>
     <li><NavLink href={"/products"}>Products</NavLink></li>
@@ -31,23 +30,34 @@ console.log(cart);
               }
             </ul>
           </div>
-          <Link href={"/"} className="btn btn-ghost  ">           
-            <Image className='h-14 w-20 object-cover' src={LilyFashion} alt='Lily fashion logo'/>
+          <Link href={"/"} className="btn btn-ghost  ">
+            <Image className='h-14 w-20 object-cover' src={LilyFashion} alt='Lily fashion logo' />
           </Link>
+         
         </div>
         <div className="flex gap-24">
+           <div className='navbar-end lg:hidden'>
+            <Link href={'/cart'} className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center  relative transition-colors">
+              <RiShoppingCartLine size={26} />
+              {
+                cart?.length > 0 && <span className="absolute -top-1 -right-1 text-white bg-red-500  text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                  {cart?.length}
+                </span>
+              }
+            </Link>
+          </div>
           <div className="navbar-center hidden lg:flex gap-8">
             <ul className="flex gap-8  menu-horizontal px-1">
               {
                 links
               }
             </ul>
-              <Link href={'/cart'} className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center  relative transition-colors">
+            <Link href={'/cart'} className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center  relative transition-colors">
               <RiShoppingCartLine size={26} />
               {
                 cart?.length > 0 && <span className="absolute -top-1 -right-1 text-white bg-red-500  text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                {cart?.length}
-              </span>
+                  {cart?.length}
+                </span>
               }
             </Link>
           </div>

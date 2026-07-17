@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useContext, useState } from 'react'
 import * as motion from "motion/react-client"
+import { RxCross2 } from 'react-icons/rx'
 
 export default function Cart() {
   const { cart, setCart } = useContext(CartContext)
@@ -28,16 +29,14 @@ export default function Cart() {
 
   // delete product from cart
   const handleCancel = (id) => {
-    console.log(id);
     const updatedCart = cart.filter(
       (item) => item.id !== id
     );
-
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }
   return (
-    <div className='grid grid-cols-12 gap-5 max-h-screen[calc(100vh-100px)] overflow-y-scroll pb-16 px-20 pt-5'>
+    <div className='max-w-7xl mx-auto grid grid-cols-12 gap-5 max-h-screen[calc(100vh-100px)] overflow-y-scroll xl:pb-10 lg:px-20 px-5 pt-5'>
       {/* cart product section */}
       <div className="overflow-x-auto lg:col-span-8 col-span-12">
         {
@@ -48,8 +47,7 @@ export default function Cart() {
                 <tr>
                   <th>Select</th>
                   <th>Image</th>
-                  <th>Details</th>
-                  <th>Quantity</th>
+                  <th className='hidden lg:block'>Details</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -68,7 +66,7 @@ export default function Cart() {
                               <Image
                                 height={500}
                                 width={500}
-                                className='w-20 h-20 object-cover'
+                                className='lg:w-20 w-10 lg:h-20 h-10 object-cover'
                                 src={cartProdcut.image}
                                 alt="product Image" />
                             </Link>
@@ -80,12 +78,12 @@ export default function Cart() {
                           </div>
                         </div>
                       </td>
-                      <td>
-                        <span>color: {cartProdcut.color}</span>
-                        <br />
-                        <span className="badge badge-ghost ">size: {cartProdcut.size}</span>
+                      <td className='hidden lg:block'>
+                        <p className='text-xs'>Color: {cartProdcut.color}</p>
+                        <p className="text-xs">Size: {cartProdcut.size}</p>
+                        <p className="text-xs ">Quantity{cartProdcut.quantity}</p>
                       </td>
-                      <td className='text-gray-600'>{cartProdcut.quantity}</td>
+                     
                       <th>
                         <motion.div
 
@@ -102,7 +100,7 @@ export default function Cart() {
                             ease: "easeOut",
                           }}
                         >
-                          <button onClick={() => handleCancel(cartProdcut.id)} className="py-2 px-5 rounded-xl bg-red-300 hover:bg-red-400 hover:text-white">Remove</button>
+                          <button onClick={() => handleCancel(cartProdcut.id)} ><RxCross2 className='text-2xl     text-red-500 hover:text-red-600' /></button>
                         </motion.div>
                       </th>
                     </tr>

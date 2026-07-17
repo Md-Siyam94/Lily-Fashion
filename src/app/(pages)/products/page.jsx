@@ -5,7 +5,6 @@ import ProductCard from '@/components/cards/ProductCard';
 import { Search, Filter, ShoppingBag, Loader } from 'lucide-react';
 
 export default function Products() {
-    // console.log(products);
     const loading = false
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -79,8 +78,8 @@ export default function Products() {
                         </aside>
 
                         <div className="flex-1">
-                            <div className="mb-6 flex items-center  ">
-                                <p className="text-gray-600">
+                            <div className="mb-6 flex gap-2 items-center  ">
+                                <p className="text-gray-600 text-xs lg:text-md">
                                     Showing <span className="font-semibold text-gray-900">{filteredProducts.length}</span> products
                                 </p>
                                 <div className=" mx-auto flex-1 lg:pl-12">
@@ -108,7 +107,7 @@ export default function Products() {
                                     <p className="text-gray-600">Try adjusting your filters or search query</p>
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
                                     {filteredProducts.map((product) => (
                                         <ProductCard key={product.id} product={product} />
                                     ))}

@@ -49,27 +49,32 @@ export default function Categories() {
             "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820"
         }
     ]
-
-    // console.log(categories)
     return (
         <div className=' px-5 max-w-7xl mx-auto py-10'>
             <h1 className="text-4xl font-sans mb-4">Categories</h1>
             <Swiper
-                slidesPerView={6}
-               
-        spaceBetween={30}
+                slidesPerView={4}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 5,
+                    },
+                    1280: {
+                        slidesPerView: 6,
+                    },
+                }}
+                spaceBetween={30}
                 navigation={true}
                 loop={true}
                 autoplay={{
                     delay: 4500,
-                    
+
                 }}
 
                 modules={[Pagination, Autoplay]}
-                >
+            >
                 {
                     categories.map((category, index) => <SwiperSlide className=' text-center' key={index}>
-                        <Image height={500} width={500} className='h-32 w-32 object-cover mx-auto rounded-full' src={category.image} alt={category.category} />
+                        <Image height={500} width={500} className='lg:h-32 h-20 lg:w-32 w-20 object-cover mx-auto rounded-full' src={category.image} alt={category.category} />
                         <h2 className='lg font-semibold mt-2'>{category.category}</h2>
                     </SwiperSlide>)
                 }

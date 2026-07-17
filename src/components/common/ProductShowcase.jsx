@@ -13,8 +13,16 @@ export default function ProductShowcase({ title }) {
             <h1 className="text-4xl font-sans mb-8">{title}</h1>
             <div >
                 <Swiper
-                    slidesPerView={5}
-                    spaceBetween={30}
+                    slidesPerView={2}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 3,
+                        },
+                        992: {
+                            slidesPerView: 5,
+                        },
+                    }}
+                    spaceBetween={20}
                     navigation={true}
                     loop={true}
                     autoplay={{

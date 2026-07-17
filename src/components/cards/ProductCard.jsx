@@ -7,7 +7,6 @@ import { Rating } from 'react-simple-star-rating'
 
 export default function ProductCard({ product }) {
     const { id, price, name, category, image, rating } = product || {}
-    console.log(rating);
     return (
         <div className=" bg-base-100  shadow-sm">
             <figure>
