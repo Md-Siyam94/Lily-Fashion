@@ -79,9 +79,9 @@ export default function Cart() {
                         </div>
                       </td>
                       <td className='hidden lg:block'>
-                        <p className='text-xs'>Color: {cartProdcut.color}</p>
-                        <p className="text-xs">Size: {cartProdcut.size}</p>
-                        <p className="text-xs ">Quantity: {cartProdcut.quantity}</p>
+                        <p className='text-sm'>Color: {cartProdcut.color}</p>
+                        <p className="text-sm my-1">Size: {cartProdcut.size}</p>
+                        <p className="text-sm ">Quantity: {cartProdcut.quantity}</p>
                       </td>
                      
                       <th>
