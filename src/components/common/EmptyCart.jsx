@@ -8,7 +8,6 @@ export default function EmptyCart() {
       <div className="flex flex-col items-center text-center max-w-xs w-full">
         {/* Lottie animation */}
         <Lottie className='h-72 w-full ' animationData={noData} loop></Lottie>
-        {/* Text */}
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Your cart is empty
         </h2>
@@ -16,7 +15,7 @@ export default function EmptyCart() {
           Looks like you have not made<br />your choice yet...
         </p>
 
-        {/* CTA */}
+        {/* redirect to product page */}
         <Link href={"/products"} className="w-full border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white font-medium py-3 rounded-lg transition-all duration-200 text-sm tracking-wide">
           Start Shopping
         </Link>

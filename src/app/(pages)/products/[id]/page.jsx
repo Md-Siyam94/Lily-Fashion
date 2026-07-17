@@ -118,17 +118,6 @@ export default function ProductDetails() {
                                 <RiShoppingCartLine size={24} />
                                 ADD TO CART
                             </button>
-
-                            <button
-                            // onClick={() => setWishlist((w) => !w)}
-                            // className={`w-12 h-12 rounded-xl border flex items-center justify-center transition ${
-                            //   wishlist
-                            //     ? 'border-red-400 text-red-500 bg-red-50'
-                            //     : 'border-gray-200 text-gray-400 hover:border-gray-400 hover:text-gray-600'
-                            // }`}
-                            >
-                                {/* <BiHeart size={18} fill={wishlist ? 'currentColor' : 'none'} /> */}
-                            </button>
                         </div>
 
                     </div>

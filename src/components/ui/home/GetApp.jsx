@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import Dekstop from '../../../assets/hero/offer.webp'
 import Mobile from '../../../assets/hero/offermobile_.webp'

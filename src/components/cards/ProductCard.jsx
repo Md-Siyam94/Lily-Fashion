@@ -1,9 +1,7 @@
 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import { SwiperSlide } from 'swiper/react';
 import { Rating } from 'react-simple-star-rating'
-// import ReactStars from "react-rating-stars-component";
 
 export default function ProductCard({ product }) {
     const { id, price, name, category, image, rating } = product || {}

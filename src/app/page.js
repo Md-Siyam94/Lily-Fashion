@@ -11,11 +11,21 @@ export default function Home() {
   return (
     <div>
       <MainLayout>
-         <Hero></Hero>
-    <Categories></Categories>
-    <Facilities></Facilities>
-    <ProductShowcase title={"Featured Products"}></ProductShowcase>
-    <GetApp></GetApp>
+        <section>
+          <Hero></Hero>
+        </section>
+       <section>
+         <Categories></Categories>
+       </section>
+        <section>
+          <Facilities></Facilities>
+        </section>
+        <section>
+          <ProductShowcase title={"Featured Products"}></ProductShowcase>
+        </section>
+        <section>
+          <GetApp></GetApp>
+        </section>
       </MainLayout>
     </div>
   );
